@@ -12,15 +12,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // API Endpoints
-app.get("/.netlify/functions/api", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "Welcome to the Riley Neighbor Challenge API" });
 });
 
-app.get("/.netlify/functions/api/status", (req, res) => {
+app.get("/api/status", (req, res) => {
   res.json({ status: "Server is running" });
 });
 
-app.post("/.netlify/functions/api/search", (req, res) => {
+app.post("/api/search", (req, res) => {
   try {
     const vehicles = req.body;
     if (!Array.isArray(vehicles)) {
